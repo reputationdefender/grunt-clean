@@ -15,14 +15,28 @@ grunt.loadNpmTasks('grunt-clean');
 [getting_started]: https://github.com/cowboy/grunt/blob/master/docs/getting_started.md
 
 ## Documentation
-_(Coming soon)_
+Configure which files and directories to delete in your `initConfig`:
+
+```javascript
+grunt.initConfig({
+  // ... other configs
+
+  clean: {
+    folder: "assets/js/""
+  }
+
+  // ... other configs
+});
+```
+
+There's no need to specify `assets/js/**/*` since the task will automatically recursively delete whatever is in that path.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
 
 ## Release History
-_(Nothing yet)_
+* 4/25/12 - v0.1.0 - Initial release.
 
 ## License
-Copyright (c) 2012 Max Beatty  
+Copyright (c) 2012 Max Beatty
 Licensed under the MIT license.
