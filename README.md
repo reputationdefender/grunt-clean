@@ -22,7 +22,7 @@ grunt.initConfig({
   // ... other configs
 
   clean: {
-    folder: "assets/js/""
+    folder: "assets/js/"
   }
 
   // ... other configs
