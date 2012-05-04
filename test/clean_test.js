@@ -25,6 +25,14 @@ exports['clean'] = {
     // setup here
     done();
   },
+  'helperOutsideCWD': function(test) {
+    test.expect(1);
+    var path = "tasks/"; // should always be there
+
+    test.equal(grunt.helper('cleanOutsideCWD', path), true, 'Should warn if cleaning outside current working directory.');
+
+    test.done();
+  },
   'helper': function(test) {
     test.expect(1);
     // tests here
