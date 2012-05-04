@@ -21,10 +21,7 @@ module.exports = function(grunt) {
     // cleaning outside cwd?
     grunt.helper('cleanOutsideCWD', this.data);
 
-    // cleaning actual cwd!?
-    // grunt.helper('cleanCWD', this.data);
-
-    // grunt.helper('clean', this.data);
+    grunt.helper('clean', this.data);
 
     grunt.log.writeln("Folder \"" + this.data + "\" contents removed.");
   });
