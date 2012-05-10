@@ -1,23 +1,23 @@
 {
   "name": "grunt-clean",
   "description": "Removes previously generated files and directories.",
-  "version": "0.1.0",
-  "homepage": "https://github.com/maxbeatty/grunt-clean",
+  "version": "0.2.1",
+  "homepage": "https://github.com/reputation/grunt-clean",
   "author": {
     "name": "Max Beatty",
     "email": "max.beatty@reputation.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maxbeatty/grunt-clean.git"
+    "url": "https://github.com/reputation/grunt-clean.git"
   },
   "bugs": {
-    "url": "https://github.com/maxbeatty/grunt-clean/issues"
+    "url": "https://github.com/reputation/grunt-clean/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/maxbeatty/grunt-clean/blob/master/LICENSE-MIT"
+      "url": "https://github.com/reputation/grunt-clean/blob/master/LICENSE-MIT"
     }
   ],
   "main": "grunt.js",
