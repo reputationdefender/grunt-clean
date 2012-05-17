@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     if (!this.data) { return false; }
 
     // cleaning outside cwd?
-    grunt.helper('cleanOutsideCWD', this.data);
+    // grunt.helper('cleanOutsideCWD', this.data);
 
     grunt.helper('clean', this.data);
 
