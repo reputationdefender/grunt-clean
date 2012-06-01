@@ -18,7 +18,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('clean', 'Removes previously generated files and directories', function() {
     if (!this.data) { return false; }
 
-    var status = grunt.helper('clean', this.data);
+    grunt.helper('clean', this.data);
 
     grunt.log.writeln("Folder \"" + this.data + "\" contents removed.");
   });
