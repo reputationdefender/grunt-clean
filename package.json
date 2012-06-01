@@ -1,7 +1,7 @@
 {
   "name": "grunt-clean",
   "description": "Removes previously generated files and directories.",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "homepage": "https://github.com/reputation/grunt-clean",
   "author": {
     "name": "Max Beatty",
