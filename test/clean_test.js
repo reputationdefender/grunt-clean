@@ -25,19 +25,20 @@ exports['clean'] = {
     // setup here
     done();
   },
-  'helperOutsideCWD': function(test) {
-    test.expect(1);
-    var path = "tasks/"; // should always be there
-
-    test.equal(grunt.helper('cleanOutsideCWD', path), true, 'Should warn if cleaning outside current working directory.');
-
-    test.done();
-  },
   'helper': function(test) {
     test.expect(1);
     // tests here
+    var fs = require('fs'),
+        testDir = process.cwd() + "/test/foo";
+
+    fs.mkdirSync(testDir);
     // not exactly sure how to test...
-    test.equal('clean!!!', 'clean!!!', 'should return the correct value.');
+    test.equal(
+      grunt.helper('clean', testDir),
+      undefined,
+      'clean failed'
+    );
+
     test.done();
   }
 };

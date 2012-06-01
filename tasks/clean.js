@@ -18,10 +18,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('clean', 'Removes previously generated files and directories', function() {
     if (!this.data) { return false; }
 
-    // cleaning outside cwd?
-    // grunt.helper('cleanOutsideCWD', this.data);
-
-    grunt.helper('clean', this.data);
+    var status = grunt.helper('clean', this.data);
 
     grunt.log.writeln("Folder \"" + this.data + "\" contents removed.");
   });
@@ -53,18 +50,6 @@ module.exports = function(grunt) {
     });
 
     fs.rmdirSync(d);
-  });
-
-  grunt.registerHelper('cleanOutsideCWD', function(p) {
-    var fs = require('fs'),
-        contents = fs.readdirSync(process.cwd()),
-        index = contents.indexOf(p.split("/")[0]);
-
-    if (index < 0) {
-      grunt.warn("path to be cleaned is outside the current working directory");
-    }
-
-    return true;
   });
 
 };
