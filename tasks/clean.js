@@ -18,16 +18,33 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('clean', 'Removes previously generated files and directories', function() {
     if (!this.data) { return false; }
 
-    grunt.helper('clean', this.data);
-
-    grunt.log.writeln("Folder \"" + this.data + "\" contents removed.");
+    if (typeof this.data === 'string' || this.data instanceof String || this.data instanceof Array) {
+      grunt.helper('clean', this.data);
+      grunt.log.writeln("Folder \"" + this.data + "\" contents removed.");
+    } else {
+      grunt.log.writeln("Clean accepts multiple targets, but each must use a string or array as data. E.g.:");
+      grunt.log.writeln("    clean : {");
+      grunt.log.writeln("        folderOne : 'path/to/folderOne',");
+      grunt.log.writeln("        folderSet : [ 'path/to/folderTwo', 'path/to/folderThree' ]");
+      grunt.log.writeln("    }");
+    }
   });
 
   // ==========================================================================
   // HELPERS
   // ==========================================================================
 
-  grunt.registerHelper('clean', function(p) {
+  grunt.registerHelper('clean', function clean(p) {
+    if (p instanceof Array) {
+      p.forEach(clean);
+      return;
+    }
+    
+    if (typeof path !== 'string' || !(path instanceof String)) {
+      grunt.log.writeln('WARN: Clean only accepts Arrays and strings. You provided a ' + (typeof p) + ': ' + p);
+      return;
+    }
+    
     // extracted from rimraf
     var fs = require('fs'),
         path = require('path'),
