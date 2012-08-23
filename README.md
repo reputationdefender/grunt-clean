@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/reputation/grunt-clean.png)](http://travis-ci.org/reputation/grunt-clean)
 # grunt-clean
 
 Removes previously generated files and directories.
