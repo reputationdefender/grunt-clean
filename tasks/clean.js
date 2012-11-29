@@ -18,9 +18,11 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('clean', 'Removes previously generated files and directories', function() {
     if (!this.data) { return false; }
 
-    if (typeof this.data === 'string' || this.data instanceof String || this.data instanceof Array) {
-      grunt.helper('clean', this.data);
-      grunt.log.writeln("Folder \"" + this.data + "\" contents removed.");
+    var file = grunt.template.process(this.data);
+      
+    if (typeof file === 'string' || file instanceof String || file instanceof Array) {
+      grunt.helper('clean', file);
+      grunt.log.writeln("Folder \"" + file + "\" contents removed.");
     } else {
       grunt.log.writeln("Clean accepts multiple targets, but each must use a string or array as data. E.g.:");
       grunt.log.writeln("    clean : {");
