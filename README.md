@@ -1,4 +1,6 @@
-# grunt-clean
+# Deprecated in favor of [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean)
+
+## grunt-clean
 
 Removes previously generated files and directories.
 
