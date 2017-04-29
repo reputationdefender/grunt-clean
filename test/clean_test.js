@@ -21,15 +21,17 @@ var grunt = require('grunt');
 */
 
 exports['clean'] = {
-  setUp: function(done) {
+  setUp(done) {
     // setup here
     done();
   },
   'helper': function(test) {
     test.expect(1);
+
     // tests here
-    var fs = require('fs'),
-        testDir = process.cwd() + "/test/foo";
+    var fs = require('fs');
+
+    var testDir = process.cwd() + "/test/foo";
 
     fs.mkdirSync(testDir);
     // not exactly sure how to test...

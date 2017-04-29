@@ -6,7 +6,7 @@
  * Licensed under the MIT license.
  */
 
-module.exports = function(grunt) {
+module.exports = grunt => {
 
   // Please see the grunt documentation for more information regarding task and
   // helper creation: https://github.com/cowboy/grunt/blob/master/docs/toc.md
@@ -18,8 +18,8 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('clean', 'Removes previously generated files and directories', function() {
     if (!this.data) { return false; }
 
-    var data = this.data,
-        file = null;
+    var data = this.data;
+    var file = null;
 
     // we need to determine if this is a string or an array
     if (typeof(data) === 'string' && (data instanceof Array === false)) {
@@ -50,12 +50,13 @@ module.exports = function(grunt) {
 
   grunt.registerHelper('clean', function clean(p) {
     // extracted from rimraf
-    var fs = require('fs'),
-        path = require('path'),
-        lstat = process.platform === "win32" ? "stat" : "lstat",
-        lstatSync = lstat + "Sync",
-        d = path.resolve(p),
-        s;
+    var fs = require('fs');
+
+    var path = require('path');
+    var lstat = process.platform === "win32" ? "stat" : "lstat";
+    var lstatSync = lstat + "Sync";
+    var d = path.resolve(p);
+    var s;
 
     try {
       s = fs[lstatSync](d);
@@ -66,7 +67,7 @@ module.exports = function(grunt) {
 
     if(!s.isDirectory()) { return fs.unlinkSync(d); }
 
-    fs.readdirSync(d).forEach(function (f) {
+    fs.readdirSync(d).forEach(f => {
       grunt.helper('clean', path.join(d, f));
     });
 
